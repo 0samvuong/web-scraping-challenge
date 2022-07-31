@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <title>mars stuff</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+ 
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>marz factsz.</h1>
+      <p>a lot of facts</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+    </div>
+    <p>Featured mars image:</p>
+    <img src="{{ mars.url }}" alt="mars">
+    <h1>Latest mars news:</h1>
+    <h3> <b>{{ mars.title }}</b></h3>
+    <h3>{{ mars.p }}</h3>
+
+    <br>
+    <!-- took me ages to find this code... -->
+    <h3>  MARS FACT TABLE</h3>
+    {{ mars.table | safe}} 
+  </div>
+
+  {% for row in mars.dict %}
+  <br>
+    <h2>{{ row.title }}</h2>
+    <img src="{{ row.img_url }}" alt="mars">
+
+  {% endfor %}
+  
+
+
+</body>
+
+
+</html>
